@@ -55,6 +55,11 @@ def problem5_prime_factors(n):
         if n%p == 0:
             return [p] + problem5_prime_factors(n/p)
 
+def problem6():
+    sum_of_nums = 100*(100+1)/2 # n(n+1)/2
+    sum_of_sqs = 100*(100+1)*(200+1)/6 # n(n+1)(2n+1)/6
+    print(sum_of_nums**2 - sum_of_sqs)
+
 
 if __name__ == '__main__':
-    problem5()
+    problem6()
