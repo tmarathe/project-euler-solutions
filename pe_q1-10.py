@@ -128,6 +128,21 @@ def problem9():
                 print(a*b*c)
                 return
 
+def problem10():
+    # need to find an efficient prime sieve
+    # sieve of erastothenes implemented here
+    ceiling = 2000000
+    sieve = [True]*ceiling
+    for i in range(2, int(math.sqrt(ceiling))):
+        if sieve[i]:
+            for j in range(i**2, ceiling, i):
+                sieve[j] = False
+    total = 0
+    for k in range(2, ceiling):
+        if sieve[k]:
+            total+= k
+    print(total)
+
 
 if __name__ == '__main__':
-    problem9()
+    problem10()
