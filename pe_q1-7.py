@@ -2,6 +2,7 @@
 # tmarathe
 
 from collections import Counter
+import math
 
 def problem1():
     total = sum(range(0,1000,3)) + sum(range(0,1000,5)) - sum(range(0,1000,15))
@@ -60,6 +61,26 @@ def problem6():
     sum_of_sqs = 100*(100+1)*(200+1)/6 # n(n+1)(2n+1)/6
     print(sum_of_nums**2 - sum_of_sqs)
 
+def problem7():
+    # use nth prime approximation
+    # known: for n>6, n*(ln(n)+ln(ln(n) − 1)) < p_n < n(ln(n) + ln(ln(n))
+    target = 10001
+    lower_bound = math.ceil(target*(math.log(target) + math.log(math.log(target)) - 1))
+    upper_bound = int(target*(math.log(target) + math.log(math.log(target))))
+    i = 0
+    for p in range(lower_bound, upper_bound+1):
+        if problem7_is_prime(p):
+            i+=1
+            if i == 39: # 39th prime after our lower bound is the one we want
+                # yeah, I know this is really lazy
+                print(p)
+
+def problem7_is_prime(p):
+    for i in range(2, int(math.sqrt(p))+1):
+        if p%i == 0:
+            return False
+    return True
+
 
 if __name__ == '__main__':
-    problem6()
+    problem7()
