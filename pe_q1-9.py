@@ -116,6 +116,18 @@ def problem8_product(l):
         prod *= j
     return prod
 
+def problem9():
+    # Euclid's formula: given arbitrary +ve ints m, n with m>n,
+    # a = m**2 - n**2, b = 2mn, c = m**2 + n**2 form a Pythagorean triple
+    for i in range(1000):
+        for j in range(i, 1000):
+            a = j**2 - i**2
+            b = 2*j*i
+            c = j**2 + i**2
+            if a+b+c == 1000:
+                print(a*b*c)
+                return
+
 
 if __name__ == '__main__':
-    problem8()
+    problem9()
