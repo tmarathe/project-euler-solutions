@@ -1,4 +1,4 @@
-# Project Euler solutions
+# Project Euler solutions - Question 1-10
 # tmarathe
 
 from collections import Counter
